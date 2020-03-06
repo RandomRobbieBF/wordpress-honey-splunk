@@ -10,7 +10,7 @@ services:
       - ./wp-app:/var/www/html # Full wordpress project
       #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
       #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
-      - ./wp-logs/:/var/log/
+      - opt-splunk-var:/var/log/
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: "${DB_NAME}"
@@ -65,6 +65,7 @@ services:
       SPLUNK_START_ARGS: --accept-license
       SPLUNK_ENABLE_LISTEN: 9997
       SPLUNK_ADD: tcp 1514
+      SPLUNK_PASSWORD: changemelad
     volumes:
       - opt-splunk-etc:/opt/splunk/etc
       - opt-splunk-var:/opt/splunk/var
