@@ -69,7 +69,6 @@ services:
     volumes:
       - opt-splunk-etc:/opt/splunk/etc
       - opt-splunk-var:/opt/splunk/var
-      - ./wp-logs/:/opt/splunk/wp-logs
     ports:
       - "8000:8000"
       - "9997:9997"
