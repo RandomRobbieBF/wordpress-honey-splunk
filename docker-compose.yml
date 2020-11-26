@@ -8,9 +8,8 @@ services:
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./config/other-vhosts-access-log.conf:/etc/apache2/conf-enabled/other-vhosts-access-log.conf
       - ./wp-app:/var/www/html # Full wordpress project
-      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
-      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
       - opt-splunk-var:/var/log/
     environment:
       WORDPRESS_DB_HOST: db
