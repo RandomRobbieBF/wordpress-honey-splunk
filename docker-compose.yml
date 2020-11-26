@@ -10,7 +10,7 @@ services:
       - ./config/000-default.conf:/etc/apache2/sites-available/000-default.conf
       - ./config/other-vhosts-access-log.conf:/etc/apache2/conf-enabled/other-vhosts-access-log.conf
       - ./wp-app:/var/www/html # Full wordpress project
-      - opt-splunk-var:/var/log/
+      - opt-splunk-var:/var/log/apache2/
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_NAME: "${DB_NAME}"
@@ -68,8 +68,8 @@ services:
       SPLUNK_ADD: tcp 1514
       SPLUNK_PASSWORD: changemelad
     volumes:
-      - opt-splunk-etc:/opt/splunk/etc
-      - opt-splunk-var:/opt/splunk/var
+      - opt-splunk-etc:/splunk/etc
+      - opt-splunk-var:/splunk/var
     ports:
       - "8000:8000"
       - "9997:9997"
