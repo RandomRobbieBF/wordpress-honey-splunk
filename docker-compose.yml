@@ -2,7 +2,7 @@ version: '3'
 
 services:
   wp:
-    build: .
+    image: wordpress:latest
     ports:
       - 80:80 # change ip if required
     volumes:
